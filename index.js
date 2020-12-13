@@ -32,6 +32,7 @@ app.use('/', function(req, res, next) {
            req.connection.socket.remoteAddress;
 
    // Your allowed ip. You can also check against an array
+   console.log(ip)
    if (ip == process.env.IP_ADDRESS) {
      next();
    } else {
