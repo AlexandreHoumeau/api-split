@@ -23,6 +23,21 @@ mongoose.connect(
 //Middlewares 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json())
+app.use('/', function(req, res, next) {
+  // do your filtering here, call a `res` method if you want to stop progress or call `next` to proceed
+  var ip = req.ip || 
+           req.headers['x-forwarded-for'] || 
+           req.connection.remoteAddress || 
+           req.socket.remoteAddress ||
+           req.connection.socket.remoteAddress;
+
+   // Your allowed ip. You can also check against an array
+   if (ip == process.env.IP_ADDRESS) {
+     next();
+   } else {
+      res.end();
+   }
+})
 
 //Routes Middleware
 // app.use("/api/user", authRoutes);
