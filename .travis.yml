@@ -13,3 +13,7 @@ cache:
   directories:
     - "node_modules"
   yarn: true
+
+env:
+  - DB_CONNECT = mongodb+srv://AlexandreHoumeau:H0NIifg2NuYFnntU@dbsplit.fp3ya.mongodb.net/dbsplit?retryWrites=true&w=majority
+  - TOKEN_SECRET = qlksdj987sdkqjàçs89_°
