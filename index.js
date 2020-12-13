@@ -35,7 +35,7 @@ app.use('/', function(req, res, next) {
    if (ip == process.env.IP_ADDRESS) {
      next();
    } else {
-      res.end();
+      res.send("No access to the application")
    }
 })
 
